@@ -5,10 +5,10 @@ type PropsCardType = {
     title: string
     userName: string
     date: string
-
+    status: string | null
 }
 
-export const Card: FC<PropsCardType> = ({title, date, userName}) => {
+export const Card: FC<PropsCardType> = ({title, date, userName, status}) => {
 
     // const cards = [
     //     {id: 1, title: 'question_1', userName: 'Person_1', date: "010101"},
@@ -21,14 +21,17 @@ export const Card: FC<PropsCardType> = ({title, date, userName}) => {
     //     {id: 8, title: 'question_8', userName: 'Person_8', date: "080101"},
     // ]
     return (
-        <div className='border mb-5 mr-5 '>
-            <h3>NodeJs</h3>
+        <div className='border rounded-xl shadow-md px-10 pt-10 pb-10'>
+            <div>{status && "verifyed"}</div>
+            <div className='grid justify-items-center'>
+            <h3 className='mb-10'>NodeJs</h3>
             <p>{title}</p>
             <p><span>By </span>{userName}</p>
-            <Button variant="contained" href="#contained-buttons">
-                Link
+            <Button className='my-10' variant="contained" href="#contained-buttons">
+                Start
             </Button>
             <p>Created:{date}</p>
+            </div>
         </div>)
 
 
